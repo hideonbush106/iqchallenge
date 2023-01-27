@@ -4,7 +4,7 @@ import { Welcome, WelcomeText, StartButton, WelcomeInfo } from "./Root.styled";
 export default function Root() {
   return (
     <Welcome>
-      <img src={"./src/assets/logo.svg"} alt="" />
+      <img src={"/assets/logo.svg"} alt="" />
       <WelcomeInfo>
         <WelcomeText>
           Chào mừng các bạn tân sinh viên K18 đến với{" "}

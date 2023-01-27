@@ -64,7 +64,7 @@ export default function Register(props) {
   return (
     <RegisterSection>
       <RegisterForm>
-        <img src="./src/assets/logo2.svg" alt="" />
+        <img src="/assets/logo2.svg" alt="" />
         <Title>
           Nhập <strong style={{ color: "#F9AF0B" }}>MSSV</strong> của bạn
         </Title>
@@ -74,7 +74,7 @@ export default function Register(props) {
         </p>
         <FormArea onSubmit={handleSubmit}>
           <InputArea style={{ marginBottom: "1rem" }}>
-            <img src="./src/assets/formicon.svg" alt="" />
+            <img src="/assets/formicon.svg" alt="" />
             <Input
               placeholder="NGUYEN VAN A"
               type="text"
@@ -85,7 +85,7 @@ export default function Register(props) {
             />
           </InputArea>
           <InputArea style={{ marginTop: "1rem" }}>
-            <img src="./src/assets/formicon.svg" alt="" />
+            <img src="/assets/formicon.svg" alt="" />
             <Input
               placeholder="SE180000"
               type="text"
@@ -100,7 +100,7 @@ export default function Register(props) {
           </StartButton>
         </FormArea>
       </RegisterForm>
-      <RegisterTheme src="./src/assets/register.svg" alt="" />
+      <RegisterTheme src="/assets/register.svg" alt="" />
       <ToastContainer
         position="top-right"
         autoClose={5000}
