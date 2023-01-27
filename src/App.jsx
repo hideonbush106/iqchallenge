@@ -1,5 +1,5 @@
 import React from "react";
-import Root from "./routes/root";
+import Root from "./routes/Root";
 import Register from "./routes/user/Register";
 import Start from "./routes/user/Start";
 import {
