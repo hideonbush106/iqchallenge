@@ -3,7 +3,6 @@ import {
   RegisterForm,
   RegisterSection,
   RegisterTheme,
-  Title,
   StartButton,
   InputArea,
   FormArea,
@@ -11,8 +10,8 @@ import {
 } from "./Register.styled";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { notifyError, notifySuccess } from "../../components/Toastify";
 
 export default function Register(props) {
   const [formData, setFormData] = React.useState({
@@ -21,19 +20,6 @@ export default function Register(props) {
   });
 
   const navigate = useNavigate();
-
-  const notify = () => {
-    toast.error("MSSV đã được đăng kí", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
-  };
 
   function formHandle(e) {
     setFormData({
@@ -50,13 +36,14 @@ export default function Register(props) {
     props.onSaveFormData(enteredFormData);
     e.preventDefault();
     try {
-      const response = await axios.post(
+      await axios.post(
         "https://iq-api.onrender.com/user/register",
         formData
       );
-      console.log(response.data);
+      notifySuccess("Đăng kí thành công");
       navigate(`/user/start/${formData.name}/${formData.studentID}`);
     } catch (error) {
+      notifyError("MSSV đã được đăng kí");
       console.log(`Error: ${error}`);
     }
   };
@@ -65,9 +52,9 @@ export default function Register(props) {
     <RegisterSection>
       <RegisterForm>
         <img src="/assets/logo2.svg" alt="" />
-        <Title>
+        <h1>
           Nhập <strong style={{ color: "#F9AF0B" }}>MSSV</strong> của bạn
-        </Title>
+        </h1>
         <p>
           Chấp nhận tham gia thử thách bằng cách điền mã số sinh viên và tra cứu
           kết quả sau khi hoàn thành
@@ -95,24 +82,10 @@ export default function Register(props) {
               value={formData.studentID}
             />
           </InputArea>
-          <StartButton type="submit" onClick={notify}>
-            Tiếp tục
-          </StartButton>
+          <StartButton type="submit">Tiếp tục</StartButton>
         </FormArea>
       </RegisterForm>
       <RegisterTheme src="/assets/register.svg" alt="" />
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
     </RegisterSection>
   );
 }

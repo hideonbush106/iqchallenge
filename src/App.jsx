@@ -2,6 +2,7 @@ import React from "react";
 import Root from "./routes/Root";
 import Register from "./routes/user/Register";
 import Start from "./routes/user/Start";
+import Test from "./routes/user/Test";
 import {
   Route,
   createBrowserRouter,
@@ -10,35 +11,31 @@ import {
 } from "react-router-dom";
 import ErrorPage from "./routes/ErrorPage";
 
-let name;
-let studentID;
+const getFormData = {
+  name: "",
+  studentID: "",
+};
 
 function formDataHandler(formData) {
-  name = formData.name;
-  studentID = formData.studentID;
-  console.log(name);
-  console.log(studentID);
+  getFormData.name = formData.name;
+  getFormData.studentID = formData.studentID;
+  console.log(formData);
 }
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route
-        path="/" 
-        element={<Root />} 
-        errorElement={<ErrorPage />} 
-      />
+      <Route path="/" element={<Root />} errorElement={<ErrorPage />} />
       <Route
         path="/register"
-        element={
-          <Register
-            onSaveFormData={formDataHandler}
-          />}
+        element={<Register onSaveFormData={formDataHandler} />}
         errorElement={<ErrorPage />}
       />
       <Route
         path={`/user/start/:name/:studentID`}
-        element={<Start />}
+        element={
+          <Start name={getFormData.name} studentID={getFormData.studentID} />
+        }
         errorElement={<ErrorPage />}
       />
     </>

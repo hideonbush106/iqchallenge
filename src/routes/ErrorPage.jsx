@@ -1,16 +1,35 @@
 import { useRouteError } from "react-router-dom";
+import styled from "styled-components";
 
 export default function ErrorPage() {
   const error = useRouteError();
   console.error(error);
 
+  const Error = styled.div`
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h1 {
+      margin: 1rem 0;
+    }
+
+    p {
+      margin: 0.5rem 0;
+    }
+
+  `;
+
   return (
-    <div id="error-page">
-      <h1>Oops!</h1>
-      <p>Sorry, an unexpected error has occurred.</p>
-      <p>
-        <i>{error.statusText || error.message}</i>
-      </p>
-    </div>
+    <>
+      <Error>
+        <img src="/assets/logo.svg" alt="" />
+        <h1>Oops! This page doesn't exist </h1>
+        <p>{error.status || error.message}</p>
+      </Error>
+    </>
   );
 }

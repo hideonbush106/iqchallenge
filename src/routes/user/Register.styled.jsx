@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import { Form } from "react-router-dom"; 
+import { Form } from "react-router-dom";
 
 const RegisterSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-height: 100vh;
-  padding: 0 5rem;
 `;
 
 const RegisterForm = styled.div`
@@ -16,30 +15,29 @@ const RegisterForm = styled.div`
   justify-content: center;
   align-items: start;
   flex-direction: column;
-  padding: 0 5rem;
+  padding: 0 5rem 0 10rem;
+  h1 {
+    color: #21222d;
+    font-weight: 700;
+    margin: 2.5rem 0 1.5rem 0;
+  }
 `;
 
 const FormArea = styled(Form)`
   width: 100%;
-`
-
-const Title = styled.h1`
-  color: #21222d;
-  font-weight: 700;
-  margin: 2.5rem 0 1.5rem 0;
 `;
 
 const RegisterTheme = styled.img`
   max-width: 50%;
-  padding-right: 5rem;
+  padding: 0 5rem;
 `;
 
 const InputArea = styled.div.attrs()`
-&:focus-within {
-  outline: 1px solid #33BD64;
-}
+  &:focus-within {
+    outline: 1px solid #33bd64;
+  }
   display: flex;
-  background: #EEEEEE;
+  background: #eeeeee;
   padding: 1rem 1rem 1rem 1rem;
   border-radius: 12px;
   width: 100%;
@@ -55,7 +53,7 @@ const Input = styled.input.attrs()`
   width: 100%;
   overflow: hidden;
   height: 1.2rem;
-  background: #EEEEEE!important;
+  background: #eeeeee !important;
   border: none;
 `;
 
@@ -76,9 +74,8 @@ export {
   RegisterSection,
   RegisterForm,
   RegisterTheme,
-  Title,
   StartButton,
   InputArea,
   FormArea,
-  Input
+  Input,
 };
