@@ -5,11 +5,16 @@ import {
   StartNote,
   StartButton,
 } from "./Start.styled";
-import { Form, useParams } from "react-router-dom";
+import { Form, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useStore } from "react-redux";
+import { setTestData } from "../../reducer/responseData";
 
-export default function Start() {
+const Start = () => {
   let { name, studentID } = useParams();
+  const navigate = useNavigate();
+
+  const store = useStore();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -17,7 +22,8 @@ export default function Start() {
       const response = await axios.get(
         `https://iq-api.onrender.com/user/start/${name}/${studentID}`
       );
-      console.log(response.data);
+      store.dispatch(setTestData(response.data.data));
+      navigate(`/user/start/${name}/${studentID}/test`);
     } catch (error) {
       console.error(error);
     }
@@ -49,4 +55,6 @@ export default function Start() {
       </StartSection>
     </>
   );
-}
+};
+
+export default Start;

@@ -10,17 +10,13 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import ErrorPage from "./routes/ErrorPage";
+import { Provider } from "react-redux";
+import store from "./reducer/store"
 
 const getFormData = {
   name: "",
   studentID: "",
 };
-
-function formDataHandler(formData) {
-  getFormData.name = formData.name;
-  getFormData.studentID = formData.studentID;
-  console.log(formData);
-}
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,13 +24,20 @@ const router = createBrowserRouter(
       <Route path="/" element={<Root />} errorElement={<ErrorPage />} />
       <Route
         path="/register"
-        element={<Register onSaveFormData={formDataHandler} />}
+        element={<Register />}
         errorElement={<ErrorPage />}
       />
       <Route
         path={`/user/start/:name/:studentID`}
         element={
-          <Start name={getFormData.name} studentID={getFormData.studentID} />
+          <Start />
+        }
+        errorElement={<ErrorPage />}
+      />
+      <Route
+        path={`/user/start/:name/:studentID/test`}
+        element={
+          <Test />
         }
         errorElement={<ErrorPage />}
       />
@@ -43,5 +46,9 @@ const router = createBrowserRouter(
 );
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  );
 }

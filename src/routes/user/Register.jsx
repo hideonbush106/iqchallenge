@@ -12,8 +12,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { notifyError, notifySuccess } from "../../components/Toastify";
+import { useStore } from "react-redux";
 
-export default function Register(props) {
+export default function Register() {
   const [formData, setFormData] = React.useState({
     name: "",
     studentID: "",
@@ -29,11 +30,6 @@ export default function Register(props) {
   }
 
   const handleSubmit = async (e) => {
-    const enteredFormData = {
-      name: formData.name,
-      studentID: formData.studentID,
-    };
-    props.onSaveFormData(enteredFormData);
     e.preventDefault();
     try {
       await axios.post(
