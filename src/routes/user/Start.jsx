@@ -7,14 +7,10 @@ import {
 } from "./Start.styled";
 import { Form, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useStore } from "react-redux";
-import { setTestData } from "../../reducer/responseData";
 
 const Start = () => {
   let { name, studentID } = useParams();
   const navigate = useNavigate();
-
-  const store = useStore();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -22,7 +18,7 @@ const Start = () => {
       const response = await axios.get(
         `https://iq-api.onrender.com/user/start/${name}/${studentID}`
       );
-      store.dispatch(setTestData(response.data.data));
+      localStorage.setItem('responseData', JSON.stringify(response.data.data));
       navigate(`/user/start/${name}/${studentID}/test`);
     } catch (error) {
       console.error(error);

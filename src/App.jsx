@@ -10,13 +10,6 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import ErrorPage from "./routes/ErrorPage";
-import { Provider } from "react-redux";
-import store from "./reducer/store"
-
-const getFormData = {
-  name: "",
-  studentID: "",
-};
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -47,8 +40,6 @@ const router = createBrowserRouter(
 
 export default function App() {
   return (
-    <Provider store={store}>
       <RouterProvider router={router} />
-    </Provider>
   );
 }
