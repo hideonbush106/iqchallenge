@@ -12,7 +12,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { notifyError, notifySuccess } from "../../components/Toastify";
-import { useStore } from "react-redux";
 
 export default function Register() {
   const [formData, setFormData] = React.useState({

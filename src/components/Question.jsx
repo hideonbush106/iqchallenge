@@ -1,15 +1,34 @@
 import React from "react";
 
 export const Question = (props) => {
-  return (
-    <>
-      <div>{props.question}</div>
-      <img src={props.img} alt="" />
-      <div>{props.option0}</div>
-      <div>{props.option1}</div>
-      <div>{props.option2}</div>
-      <div>{props.option3}</div>
-      <div>{props.option4}</div>
-    </>
-  );
+
+  const title = props.title;
+
+  if (props.isLong) {
+    if (props.img)
+      return (
+        <>
+          
+        </>
+      );
+    else
+      return (
+        <>
+          {title.map((question) => (<p>{question.question}</p>))}
+        </>
+      );
+  } else {
+    if (props.img)
+      return (
+          <>
+            
+          </>
+      );
+    else
+      return (
+        <>
+          {props.question.map((question) => (<h1>{question.question}</h1>))}
+        </>
+      );
+  }
 };
