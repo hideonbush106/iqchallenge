@@ -4,18 +4,16 @@ import { useParams } from "react-router-dom";
 const Result = () => {
   let { studentID } = useParams();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(
-        `https://iq-api.onrender.com/user/${studentID}`
-      );
-      localStorage.setItem("userStat", JSON.stringify(response.data));
-    };
-    fetchData();
-  }, []);
+  const fetchData = async () => {
+    const response = await axios.get(
+      `https://iq-api.onrender.com/user/${studentID}`
+    );
+    localStorage.setItem("userStat", JSON.stringify(response.data));
+  };
+  fetchData();
 
   const resultData = JSON.parse(localStorage.getItem("userStat"));
-
+  console.log(resultData);
   return (
     <>
       <h1>Điểm: {resultData.data.score}</h1>

@@ -44,6 +44,7 @@ export default function Test() {
       );
       notifySuccess("Nộp bài thành công");
       console.log(response);
+      console.log(requestBody);
       navigate(`/user/${name}/${studentID}/result`);
     } catch (error) {
       notifyError("Bạn đã nộp bài trước đó");
