@@ -62,7 +62,6 @@ export default function Register() {
               placeholder="NGUYEN VAN A"
               type="text"
               required
-              pattern="^[a-zA-Z]+([\s][a-zA-Z]+)*$"
               name="name"
               onChange={formHandle}
               value={formData.name}

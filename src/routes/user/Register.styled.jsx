@@ -10,7 +10,7 @@ const LogoMobile = styled.img`
     display: flex;
     justify-self: start;
   }
-`
+`;
 
 const RegisterSection = styled.div`
   display: flex;
@@ -42,7 +42,7 @@ const RegisterForm = styled.div`
     img {
       display: none;
     }
-    p{
+    p {
       text-align: justify;
     }
     h1 {
@@ -51,7 +51,6 @@ const RegisterForm = styled.div`
       width: 100%;
     }
   }
-
 `;
 
 const FormArea = styled(Form)`
@@ -90,6 +89,9 @@ const Input = styled.input.attrs()`
   height: 1.2rem;
   background: #eeeeee !important;
   border: none;
+  ${down("md")} {
+    font-size: 1rem;
+  }
 `;
 
 const StartButton = styled.button`
@@ -116,5 +118,5 @@ export {
   InputArea,
   FormArea,
   Input,
-  LogoMobile
+  LogoMobile,
 };

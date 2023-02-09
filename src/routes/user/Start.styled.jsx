@@ -60,6 +60,7 @@ export const StartNote = styled.div`
     h2 {
       width: 100%;
       text-align: center;
+      font-size: 1.7rem;
     }
   }
 `;

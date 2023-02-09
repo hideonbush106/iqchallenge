@@ -23,7 +23,7 @@ export const Question = (props) => {
         })}
         {question.multipleChoice.map((option, index) => ( // map cho cau tra loi
           <div key={index}>
-            <input type="radio" name={question._id} value={index + 1} />
+            <input type="radio" name={question._id} value={index + 1} onChange={props.handleChange} />
             <label htmlFor={index}>{option}</label>
           </div>
         ))}
