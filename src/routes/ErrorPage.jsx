@@ -12,7 +12,8 @@ export default function ErrorPage() {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
+    text-align: center;
+    padding: 0 2rem;
     h1 {
       margin: 1rem 0;
     }
@@ -28,7 +29,7 @@ export default function ErrorPage() {
       <Error>
         <img src="/assets/logo.svg" alt="" />
         <h1>Oops! This page doesn't exist </h1>
-        <p>{error.status || error.message}</p>
+        <h1>{error.status || error.message}</h1>
       </Error>
     </>
   );

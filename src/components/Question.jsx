@@ -1,34 +1,62 @@
 import React from "react";
 
 export const Question = (props) => {
+  const question = props.question;
 
-  const title = props.title;
-
-  if (props.isLong) {
-    if (props.img)
-      return (
-        <>
-          
-        </>
-      );
-    else
-      return (
-        <>
-          {title.map((question) => (<p>{question.question}</p>))}
-        </>
-      );
+  if (question.isLong) {
+    return (
+      <div>
+        <h1>{props.questionIndex + 1}</h1>
+        {question.question.map((title, index) => { // map cho cau hoi
+          if (title.match("/images/"))
+            return (
+              <div key={index}>
+                <img src={title} alt="" />
+              </div>
+            );
+          else
+            return (
+              <div key={index}>
+                <p>{title}</p>
+              </div>
+            );
+        })}
+        {question.multipleChoice.map((option, index) => ( // map cho cau tra loi
+          <div key={index}>
+            <input type="radio" name={question._id} value={index + 1} />
+            <label htmlFor={index}>{option}</label>
+          </div>
+        ))}
+      </div>
+    );
   } else {
-    if (props.img)
-      return (
-          <>
-            
-          </>
-      );
-    else
-      return (
-        <>
-          {props.question.map((question) => (<h1>{question.question}</h1>))}
-        </>
-      );
+    return (
+      <div>
+        <h1>{props.questionIndex + 1}</h1>
+        {question.question.map((title, index) => {
+          if (title.match("/images"))
+            return (
+              <div key={index}>
+                <img src={title} alt="" />
+              </div>
+            );
+          else
+            return (
+              <div key={index}>
+                <h1>{title}</h1>
+              </div>
+            );
+        })}
+        {question.multipleChoice.map((option, index) => (
+          <div key={index}>
+            <input type="radio" name={question._id} value={index + 1} />
+            <label htmlFor={index}>{option}</label>
+          </div>
+        ))}
+      </div>
+    );
   }
 };
+//!Chú ý
+// TODO: css lại câu hỏi
+// TODO: làm mobile

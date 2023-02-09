@@ -1,11 +1,27 @@
 import styled from "styled-components";
 import { Form } from "react-router-dom";
+import { down } from "styled-breakpoints";
+
+const LogoMobile = styled.img`
+  display: none;
+
+  ${down("md")} {
+    padding: 2rem 0;
+    display: flex;
+    justify-self: start;
+  }
+`
 
 const RegisterSection = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   min-height: 100vh;
+
+  ${down("md")} {
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+  }
 `;
 
 const RegisterForm = styled.div`
@@ -21,6 +37,21 @@ const RegisterForm = styled.div`
     font-weight: 700;
     margin: 2.5rem 0 1.5rem 0;
   }
+  ${down("md")} {
+    padding: 0 2rem 5rem 2rem;
+    img {
+      display: none;
+    }
+    p{
+      text-align: justify;
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.5rem;
+      width: 100%;
+    }
+  }
+
 `;
 
 const FormArea = styled(Form)`
@@ -30,6 +61,10 @@ const FormArea = styled(Form)`
 const RegisterTheme = styled.img`
   max-width: 50%;
   padding: 0 5rem;
+  ${down("md")} {
+    padding: 0 2rem;
+    max-width: 100%;
+  }
 `;
 
 const InputArea = styled.div.attrs()`
@@ -78,4 +113,5 @@ export {
   InputArea,
   FormArea,
   Input,
+  LogoMobile
 };

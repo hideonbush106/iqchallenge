@@ -7,6 +7,7 @@ import {
   InputArea,
   FormArea,
   Input,
+  LogoMobile
 } from "./Register.styled";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -61,6 +62,7 @@ export default function Register() {
               placeholder="NGUYEN VAN A"
               type="text"
               required
+              pattern="^[a-zA-Z]+([\s][a-zA-Z]+)*$"
               name="name"
               onChange={formHandle}
               value={formData.name}
@@ -72,6 +74,7 @@ export default function Register() {
               placeholder="SE180000"
               type="text"
               required
+              pattern="SE\d{6}"
               name="studentID"
               onChange={formHandle}
               value={formData.studentID}
@@ -81,6 +84,7 @@ export default function Register() {
         </FormArea>
       </RegisterForm>
       <RegisterTheme src="/assets/register.svg" alt="" />
+      <LogoMobile src="/assets/logo2.svg" alt="" />
     </RegisterSection>
   );
 }

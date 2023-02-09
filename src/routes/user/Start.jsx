@@ -4,6 +4,7 @@ import {
   StartTheme,
   StartNote,
   StartButton,
+  LogoMobile
 } from "./Start.styled";
 import { Form, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -18,7 +19,7 @@ const Start = () => {
       const response = await axios.get(
         `https://iq-api.onrender.com/user/start/${name}/${studentID}`
       );
-      localStorage.setItem('responseData', JSON.stringify(response.data.data));
+      localStorage.setItem("responseData", JSON.stringify(response.data.data));
       navigate(`/user/start/${name}/${studentID}/test`);
     } catch (error) {
       console.error(error);
@@ -28,6 +29,7 @@ const Start = () => {
   return (
     <>
       <StartSection>
+        <LogoMobile src="/assets/logo2.svg" alt="" />
         <StartTheme src="/assets/start.svg" />
         <StartNote>
           <img src="/assets/logo2.svg" alt="" />
@@ -44,7 +46,7 @@ const Start = () => {
             <img src="/assets/checkmark.svg" alt="" />
             <p>Chỉ chọn một đáp án đúng duy nhất</p>
           </div>
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} style={{width: "100%"}}>
             <StartButton type="submit">Bắt đầu thử thách</StartButton>
           </Form>
         </StartNote>

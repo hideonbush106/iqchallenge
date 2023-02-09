@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { down } from "styled-breakpoints";
 
 const Welcome = styled.div`
   display: flex;
@@ -14,6 +15,10 @@ const WelcomeText = styled.p`
   color: #7b7b81;
   width: 55%;
   margin-bottom: 2rem;
+
+  ${down("sm")} {
+    width: 85%;
+  }
 `;
 
 const WelcomeInfo = styled.div`
@@ -34,5 +39,10 @@ const StartButton = styled(Link)`
   color: white;
   cursor: pointer;
   text-decoration: none;
+  text-align: center;
+
+  ${down("sm")} {
+    width: 85%;
+  }
 `;
 export { Welcome, WelcomeText, StartButton, WelcomeInfo };
