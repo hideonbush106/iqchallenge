@@ -103,6 +103,9 @@ const StartButton = styled.button`
   cursor: pointer;
   text-decoration: none;
   width: 100%;
+  ${down("md")} {
+    font-size: 1.2rem;
+  }
 `;
 
 export {

@@ -79,5 +79,6 @@ export const StartButton = styled.button`
   ${down("md")} {
     width: 100%;
     margin: 3rem 0;
+    font-size: 1.2rem;
   }
 `;

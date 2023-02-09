@@ -43,6 +43,8 @@ const StartButton = styled(Link)`
 
   ${down("sm")} {
     width: 85%;
+    margin: 3rem 0;
+    font-size: 1.2rem;
   }
 `;
 export { Welcome, WelcomeText, StartButton, WelcomeInfo };
