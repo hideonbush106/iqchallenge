@@ -7,7 +7,8 @@ export const Question = (props) => {
     return (
       <div>
         <h1>{props.questionIndex + 1}</h1>
-        {question.question.map((title, index) => { // map cho cau hoi
+        {question.question.map((title, index) => {
+          // map cho cau hoi
           if (title.match("/images/"))
             return (
               <div key={index}>
@@ -21,9 +22,14 @@ export const Question = (props) => {
               </div>
             );
         })}
-        {question.multipleChoice.map((option, index) => ( // map cho cau tra loi
+        {question.multipleChoice.map((option, index) => (
           <div key={index}>
-            <input type="radio" name={question._id} value={index + 1} onChange={props.handleChange} />
+            <input
+              type="radio"
+              name={question._id}
+              value={index + 1}
+              onChange={props.handleChange}
+            />
             <label htmlFor={index}>{option}</label>
           </div>
         ))}
@@ -57,6 +63,5 @@ export const Question = (props) => {
     );
   }
 };
-//!Chú ý
 // TODO: css lại câu hỏi
 // TODO: làm mobile

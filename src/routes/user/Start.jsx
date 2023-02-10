@@ -8,6 +8,7 @@ import {
 } from "./Start.styled";
 import { Form, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { notifyError } from "../../components/Toastify";
 
 const Start = () => {
   let { name, studentID } = useParams();
@@ -22,7 +23,7 @@ const Start = () => {
       localStorage.setItem("responseData", JSON.stringify(response.data.data));
       navigate(`/user/start/${name}/${studentID}/test`);
     } catch (error) {
-      console.error(error);
+      notifyError("Bạn đã nộp bài trước đó");
     }
   }
 
