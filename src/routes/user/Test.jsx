@@ -8,50 +8,44 @@ export default function Test() {
 
   const responseData = JSON.parse(localStorage.getItem("responseData"));
 
-  const navigate = useNavigate();
-
-  const [requestBody, setRequestBody] = useState({
-    name: name,
-    studentID: studentID,
-    answer: [],
-  });
+  // const navigate = useNavigate();
   // console.log((new Date() - responseData.timeStart) / 3600);
   // console.log(responseData.questions);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formElements = event.target.elements;
-    const data = [];
 
-    let optionIndex = 0;
+    let answer = [];
 
     for (let i = 0; i < formElements.length; i++) {
       const element = formElements[i];
       if (element.type === "radio" && element.checked) {
-        data[optionIndex] = element.value;
-        optionIndex++;
+        answer.push(element.value);
       }
     }
-
-    setRequestBody({
-      ...requestBody,
-      answer: data,
-    });
+    console.log(answer);
     try {
+      const requestBody = {
+        name: name,
+        studentID: studentID,
+        answer: answer,
+      };
+      console.log(requestBody);
       const response = await axios.put(
         "https://iq-api.onrender.com/user/end",
         requestBody
       );
       notifySuccess("Nộp bài thành công");
       console.log(response);
-      console.log(requestBody);
-      navigate(`/user/${name}/${studentID}/result`);
+      // navigate(`/user/${name}/${studentID}/result`);
+      const result = await axios.get(
+        `https://iq-api.onrender.com/user/${studentID}`);
+      console.log(result);
     } catch (error) {
       notifyError("Bạn đã nộp bài trước đó");
     }
   };
-
-  console.log(requestBody);
 
   return (
     <>

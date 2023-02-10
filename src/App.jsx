@@ -3,7 +3,7 @@ import Root from "./routes/Root";
 import Register from "./routes/user/Register";
 import Start from "./routes/user/Start";
 import Test from "./routes/user/Test";
-import Result from "./routes/user/Result";
+// import Result from "./routes/user/Result";
 import {
   Route,
   createBrowserRouter,
@@ -38,13 +38,13 @@ const router = createBrowserRouter(
         }
         errorElement={<ErrorPage />}
       />
-      <Route
+      {/* <Route
         path={`/user/:name/:studentID/result`}
         element={
           <Result />
         }
         errorElement={<ErrorPage />}
-      />
+      /> */}
     </>
   )
 );
