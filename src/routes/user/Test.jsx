@@ -78,10 +78,6 @@ export default function Test() {
       notifySuccess("Nộp bài thành công");
       console.log(response);
       navigate(`/user/${name}/${studentID}/result`);
-      const result = await axios.get(
-        `https://iq-api.onrender.com/user/${studentID}`
-      );
-      console.log(result);
     } catch (error) {
       notifyError("Bạn đã nộp bài trước đó");
     }
