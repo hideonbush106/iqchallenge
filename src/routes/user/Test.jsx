@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Question } from "../../components/Question";
 import axios from "axios";
-import { Form, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { notifyError, notifySuccess } from "../../components/Toastify";
+import { TestSection, TestForm } from "./Test.styled";
+import { confirmAlert } from "react-confirm-alert";
+import "../../confirm.css"; // Import css
 
 export default function Test() {
   const { name, studentID } = useParams();
@@ -31,7 +34,6 @@ export default function Test() {
     ]
   );
 
-  console.log(formData);
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: { answer: e.target.value } });
   };
@@ -49,43 +51,71 @@ export default function Test() {
     localStorage.setItem(`formDataFor${studentID}`, JSON.stringify(formData));
   }, [formData]);
 
-  // console.log((new Date() - responseData.timeStart) / 3600);
-  // console.log(responseData.questions);
-
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     const enteredAnswer = [];
 
     for (let i = 0; i < 15; i++) {
       //Collect data from form
-      enteredAnswer[i] = parseInt(
-        event.target.elements[i].value
-      );
+      enteredAnswer[i] = parseInt(event.target.elements[i].value);
     }
-    console.log(enteredAnswer);
-
     event.preventDefault();
-    try {
-      const requestBody = {
-        name: name,
-        studentID: studentID,
-        answer: enteredAnswer,
-      };
-      console.log(requestBody);
-      const response = await axios.put(
-        "https://iq-api.onrender.com/user/end",
-        requestBody
-      );
-      notifySuccess("Nộp bài thành công");
-      console.log(response);
-      navigate(`/user/${name}/${studentID}/result`);
-    } catch (error) {
-      notifyError("Bạn đã nộp bài trước đó");
-    }
+    confirmAlert({
+      customUI: ({ onClose }) => {
+        return (
+          <div className="react-confirm-alert-body">
+            <h2>
+              Xác nhận hoàn thành thử thách{" "}
+              <strong style={{ color: "#33BD64" }}>IQ Challenge</strong>
+            </h2>
+            <p>
+              Bạn nên kiểm tra bài làm trước khi nộp để chắc chắn trả lời đầy đủ
+              các câu hỏi. Sau khi{" "}
+              <strong style={{ color: "#33BD64" }}>Nộp bài</strong>, hành động
+              này không thể hoàn tác.
+            </p>
+            <h3>Bạn chắc chắn muốn nộp bài chứ?</h3>
+            <div className="react-confirm-alert-button-group">
+              <button
+                type="submit"
+                onClick={onClose}
+                className="button-reverse"
+              >
+                QUAY LẠI
+              </button>
+              <button
+                type="submit"
+                onClick={async () => {
+                  try {
+                    const requestBody = {
+                      name: name,
+                      studentID: studentID,
+                      answer: enteredAnswer,
+                    };
+                    const response = await axios.put(
+                      "https://iq-api.onrender.com/user/end",
+                      requestBody
+                    );
+                    notifySuccess("Nộp bài thành công");
+                    onClose();
+                    navigate(`/user/${name}/${studentID}/result`);
+                  } catch (error) {
+                    onClose();
+                    notifyError("Bạn đã nộp bài trước đó");
+                  }
+                }}
+              >
+                NỘP BÀI
+              </button>
+            </div>
+          </div>
+        );
+      },
+    });
   };
 
   return (
-    <>
-      <Form onSubmit={handleSubmit}>
+    <TestSection>
+      <TestForm onSubmit={handleSubmit}>
         {responseData.questions.map((questions, index) => (
           <Question
             question={questions}
@@ -96,7 +126,8 @@ export default function Test() {
           />
         ))}
         <button type="submit">Nộp bài</button>
-      </Form>
-    </>
+        <p>Kết thúc phần bài làm</p>
+      </TestForm>
+    </TestSection>
   );
 }

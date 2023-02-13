@@ -40,7 +40,6 @@ export default function Register() {
       navigate(`/user/start/${formData.name}/${formData.studentID}`);
     } catch (error) {
       notifyError("MSSV đã được đăng kí");
-      console.log(`Error: ${error}`);
     }
   };
 

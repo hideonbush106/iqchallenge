@@ -15,7 +15,6 @@ const Result = () => {
       .then((response) => {
         setScore(response.data.data.score);
         setTime(response.data.data.time);
-        console.log(response.data.data.time);
       });
   }, []);
 

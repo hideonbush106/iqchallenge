@@ -1,24 +1,24 @@
 import React from "react";
-
+import { QuestionTitleSection, ImgHolder } from "./QuestionTitle.styled";
 const QuestionTitle = (props) => {
   const questionTitle = props.questionTitle;
   return (
-    <div>
-      <h1>{props.questionIndex + 1}</h1>
+    <QuestionTitleSection>
+      <h4>Câu hỏi số {props.questionIndex + 1}</h4>
       {questionTitle.question.map((title, index) => {
         return (
-          <>
+          <div key={index}>
             {title.match("/images/") ? (
-              <div key={index}>
+              <ImgHolder>
                 <img src={title} alt="" />
-              </div>
+              </ImgHolder>
             ) : (
-              <>{questionTitle.isLong ? <p>{title}</p> : <h1>{title}</h1>}</>
+              <>{questionTitle.isLong ? <p>{title}</p> : <h2>{title}</h2>}</>
             )}
-          </>
+          </div>
         );
       })}
-    </div>
+    </QuestionTitleSection>
   );
 };
 

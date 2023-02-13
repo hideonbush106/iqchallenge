@@ -1,12 +1,12 @@
 import React from "react";
 import Option from "./Option";
 import QuestionTitle from "./QuestionTitle";
-
+import { QuestionSection } from "./Question.styled";
 export const Question = (props) => {
   const question = props.question;
 
   return (
-    <div>
+    <QuestionSection>
       <QuestionTitle
         questionTitle={question}
         questionIndex={props.questionIndex}
@@ -17,7 +17,7 @@ export const Question = (props) => {
         handleChange={props.handleChange}
         formData={props.formData}
       />
-    </div>
+    </QuestionSection>
   );
 };
 // TODO: css lại câu hỏi
