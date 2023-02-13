@@ -37,11 +37,11 @@ const Start = () => {
           <h2>Chuẩn bị sẵn sàng</h2>
           <div>
             <img src="/assets/timer.svg" alt="" />
-            <p>Bạn sẽ có 10' để hoàn thành thử thách</p>
+            <p>Hệ thống sẽ tính thời gian hoàn thành của bạn</p>
           </div>
           <div>
             <img src="/assets/questionmark.svg" alt="" />
-            <p>Tổng cộng là 20 câu hỏi cần hoàn thành</p>
+            <p>Tổng cộng là 15 câu hỏi cần hoàn thành</p>
           </div>
           <div>
             <img src="/assets/checkmark.svg" alt="" />

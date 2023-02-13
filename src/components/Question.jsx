@@ -2,7 +2,7 @@ import React from "react";
 
 export const Question = (props) => {
   const question = props.question;
-
+  
   if (question.isLong) {
     return (
       <div>
@@ -25,12 +25,14 @@ export const Question = (props) => {
         {question.multipleChoice.map((option, index) => (
           <div key={index}>
             <input
+              id={`option${index + 1}`}
               type="radio"
-              name={question._id}
+              name={props.questionIndex}
               value={index + 1}
               onChange={props.handleChange}
+              checked={index + 1 == props.formData[props.questionIndex].answer}
             />
-            <label htmlFor={index}>{option}</label>
+            <label htmlFor={`option${index + 1}`}>{option}</label>
           </div>
         ))}
       </div>
@@ -55,8 +57,15 @@ export const Question = (props) => {
         })}
         {question.multipleChoice.map((option, index) => (
           <div key={index}>
-            <input type="radio" name={question._id} value={index + 1} />
-            <label htmlFor={index}>{option}</label>
+            <input
+              id={`option${index + 1}`}
+              type="radio"
+              name={props.questionIndex}
+              value={index + 1}
+              onChange={props.handleChange}
+              checked={index + 1 == props.formData[props.questionIndex].answer}
+            />
+            <label htmlFor={`option${index + 1}`}>{option}</label>
           </div>
         ))}
       </div>
@@ -65,3 +74,4 @@ export const Question = (props) => {
 };
 // TODO: css lại câu hỏi
 // TODO: làm mobile
+// TODO: lưu form data vào local
