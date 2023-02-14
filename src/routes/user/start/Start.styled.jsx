@@ -77,6 +77,10 @@ export const StartButton = styled.button`
   text-decoration: none;
   width: 100%;
   margin: 2rem 0;
+  transition: all 0.25s ease;
+  :hover {
+  background-color: rgb(40, 149, 78);
+}
   ${down("md")} {
     width: 100%;
     margin: 3rem 0;

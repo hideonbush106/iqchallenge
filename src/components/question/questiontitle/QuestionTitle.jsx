@@ -4,7 +4,7 @@ const QuestionTitle = (props) => {
   const questionTitle = props.questionTitle;
   return (
     <QuestionTitleSection>
-      <h4>Câu hỏi số {props.questionIndex + 1}</h4>
+      <h3>Câu hỏi số {props.questionIndex + 1}</h3>
       {questionTitle.question.map((title, index) => {
         return (
           <div key={index}>

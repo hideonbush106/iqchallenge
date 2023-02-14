@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const OptionSection = styled.div`
-  width: 50%;
+  width: 40%;
   padding-left: 2rem;
   display: flex;
   flex-direction: column;
@@ -50,5 +50,6 @@ export const Choices = styled.div`
 
   label:hover {
     background: #bdbdbd;
+    cursor: pointer;
   }
 `;

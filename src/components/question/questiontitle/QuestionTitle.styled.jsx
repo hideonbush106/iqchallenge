@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const QuestionTitleSection = styled.div`
-  width: 50%;
+  width: 60%;
   padding-right: 2rem;
-  h4 {
+  border-right: 1px solid #EEE;
+  h3 {
     color: #f9af0b;
     margin-bottom: 1.5rem;
     font-weight: 600;

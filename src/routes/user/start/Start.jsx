@@ -8,7 +8,7 @@ import {
 } from "./Start.styled";
 import { Form, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { notifyError } from "../../components/Toastify";
+import { notifyError } from "../../../components/Toastify";
 
 const Start = () => {
   let { name, studentID } = useParams();

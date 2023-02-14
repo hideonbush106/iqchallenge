@@ -105,6 +105,10 @@ const StartButton = styled.button`
   cursor: pointer;
   text-decoration: none;
   width: 100%;
+  transition: all 0.25s ease;
+  :hover {
+    background-color: rgb(40, 149, 78);
+  }
   ${down("md")} {
     font-size: 1.2rem;
   }

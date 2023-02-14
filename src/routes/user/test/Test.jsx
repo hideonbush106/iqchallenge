@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Question } from "../../components/Question";
+import Question from "../../../components/question/Question";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import { notifyError, notifySuccess } from "../../components/Toastify";
-import { TestSection, TestForm } from "./Test.styled";
+import { notifyError, notifySuccess } from "../../../components/Toastify";
+import { TestSection, TestForm, FormArea } from "./Test.styled";
 import { confirmAlert } from "react-confirm-alert";
-import "../../confirm.css"; // Import css
+import "../../../confirm.css"; // Import css
+import TestStat from "../../../components/teststat/TestStat";
 
 export default function Test() {
   const { name, studentID } = useParams();
@@ -73,7 +74,9 @@ export default function Test() {
               <strong style={{ color: "#33BD64" }}>Nộp bài</strong>, hành động
               này không thể hoàn tác.
             </p>
-            <h3>Bạn chắc chắn muốn nộp bài chứ?</h3>
+            <p style={{ fontWeight: "600", color: "#7B7B81" }}>
+              Bạn chắc chắn muốn nộp bài chứ?
+            </p>
             <div className="react-confirm-alert-button-group">
               <button
                 type="submit"
@@ -116,17 +119,25 @@ export default function Test() {
   return (
     <TestSection>
       <TestForm onSubmit={handleSubmit}>
-        {responseData.questions.map((questions, index) => (
-          <Question
-            question={questions}
-            questionIndex={index}
-            key={questions._id}
-            handleChange={handleChange}
-            formData={formData}
-          />
-        ))}
-        <button type="submit">Nộp bài</button>
-        <p>Kết thúc phần bài làm</p>
+        <TestStat />
+        <FormArea>
+          <div style={{}}>
+            {responseData.questions.map((questions, index) => (
+              <Question
+                question={questions}
+                questionIndex={index}
+                key={questions._id}
+                handleChange={handleChange}
+                formData={formData}
+              />
+            ))}
+          </div>
+          <p
+            style={{ color: "#BDBDBD", textAlign: "center", marginTop: "1rem" }}
+          >
+            Kết thúc phần bài làm
+          </p>
+        </FormArea>
       </TestForm>
     </TestSection>
   );

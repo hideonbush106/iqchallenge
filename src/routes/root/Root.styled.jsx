@@ -40,6 +40,10 @@ const StartButton = styled(Link)`
   cursor: pointer;
   text-decoration: none;
   text-align: center;
+  transition: all 0.25s ease;
+  :hover {
+    background-color: rgb(40, 149, 78);
+  }
 
   ${down("sm")} {
     width: 85%;

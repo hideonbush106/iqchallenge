@@ -1,9 +1,9 @@
 import React from "react";
-import Root from "./routes/Root";
-import Register from "./routes/user/Register";
-import Start from "./routes/user/Start";
-import Test from "./routes/user/Test";
-import Result from "./routes/user/Result";
+import Root from "./routes/root/Root"
+import Register from "./routes/user/register/Register";
+import Start from "./routes/user/start/Start";
+import Test from "./routes/user/test/Test";
+import Result from "./routes/user/result/Result";
 import {
   Route,
   createBrowserRouter,

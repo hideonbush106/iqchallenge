@@ -1,8 +1,8 @@
 import React from "react";
-import Option from "./Option";
-import QuestionTitle from "./QuestionTitle";
+import Option from "./option/Option";
+import QuestionTitle from "./questiontitle/QuestionTitle";
 import { QuestionSection } from "./Question.styled";
-export const Question = (props) => {
+const Question = (props) => {
   const question = props.question;
 
   return (
@@ -23,3 +23,4 @@ export const Question = (props) => {
 // TODO: css lại câu hỏi
 // TODO: làm mobile
 // TODO: lưu form data vào local
+export default Question
