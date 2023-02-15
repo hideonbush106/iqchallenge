@@ -6,7 +6,7 @@ const Question = (props) => {
   const question = props.question;
 
   return (
-    <QuestionSection>
+    <QuestionSection id={`question-${props.questionIndex + 1}`}>
       <QuestionTitle
         questionTitle={question}
         questionIndex={props.questionIndex}
@@ -22,5 +22,4 @@ const Question = (props) => {
 };
 // TODO: css lại câu hỏi
 // TODO: làm mobile
-// TODO: lưu form data vào local
 export default Question

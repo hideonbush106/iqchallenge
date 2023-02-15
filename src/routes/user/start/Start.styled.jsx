@@ -8,7 +8,7 @@ export const LogoMobile = styled.img`
     display: flex;
     justify-self: start;
   }
-`
+`;
 
 export const StartSection = styled.div`
   display: flex;
@@ -18,6 +18,7 @@ export const StartSection = styled.div`
   ${down("md")} {
     flex-direction: column;
     justify-content: space-evenly;
+    padding: 2rem;
   }
 `;
 
@@ -68,19 +69,20 @@ export const StartNote = styled.div`
 export const StartButton = styled.button`
   background: #33bd64;
   border-radius: 12px;
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 3.25rem;
   text-transform: uppercase;
   font-weight: 700;
+  font-size: 1.25rem;
   border: none;
   color: white;
   cursor: pointer;
   text-decoration: none;
-  width: 100%;
+  width: fit-content;
   margin: 2rem 0;
   transition: all 0.25s ease;
   :hover {
-  background-color: rgb(40, 149, 78);
-}
+    background-color: rgb(40, 149, 78);
+  }
   ${down("md")} {
     width: 100%;
     margin: 3rem 0;

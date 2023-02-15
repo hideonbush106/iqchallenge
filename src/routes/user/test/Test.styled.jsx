@@ -8,13 +8,11 @@ export const TestSection = styled.div`
 `;
 
 export const TestForm = styled(Form)`
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: start;
+  width: 100%;
 `;
 
 export const FormArea = styled.div`
   width: 70%;
   margin-right: 4.5rem;
+  float: right;
 `;

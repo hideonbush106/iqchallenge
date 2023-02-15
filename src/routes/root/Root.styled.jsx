@@ -34,7 +34,7 @@ const StartButton = styled(Link)`
   padding: 0.75rem 2rem;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   border: none;
   color: white;
   cursor: pointer;

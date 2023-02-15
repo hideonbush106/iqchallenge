@@ -79,14 +79,15 @@ const InputArea = styled.div.attrs()`
   transition: 0.25s linear;
 `;
 
-const Input = styled.input.attrs()`
+const Input = styled.input`
   &:focus {
     outline: none;
   }
+  font-size: 1rem;
   margin-left: 0.5rem;
   width: 100%;
   overflow: hidden;
-  height: 1.2rem;
+  height: 1.25rem;
   background: #eeeeee !important;
   border: none;
   ${down("md")} {
@@ -99,6 +100,7 @@ const StartButton = styled.button`
   border-radius: 12px;
   padding: 0.75rem 2rem;
   text-transform: uppercase;
+  font-size: 1.25rem;
   font-weight: 700;
   border: none;
   color: white;
