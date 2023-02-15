@@ -69,7 +69,7 @@ export default function Test() {
     const hrStr = parseInt(hr.toString().padStart(2, "0"));
     const minStr = parseInt(min.toString().padStart(2, "0"));
     const secStr = parseInt(sec.toString().padStart(2, "0"));
-    setTime(`${hrStr}h:${minStr}m:${secStr}s`);
+    setTime(`${hrStr}:${minStr}:${secStr}`);
   };
 
   useEffect(() => {

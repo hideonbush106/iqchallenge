@@ -26,7 +26,7 @@ const RegisterSection = styled.div`
 
 const RegisterForm = styled.div`
   min-width: 50%;
-  color: #7b7b81;
+  color: #919196;
   display: flex;
   justify-content: center;
   align-items: start;
