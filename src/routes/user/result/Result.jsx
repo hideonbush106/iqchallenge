@@ -13,7 +13,7 @@ import {
 } from "./Result.styled";
 
 const Result = () => {
-  const { studentID } = useParams();
+  const { name, studentID } = useParams();
 
   const [score, setScore] = useState(0);
   const [time, setTime] = useState("");
@@ -37,6 +37,19 @@ const Result = () => {
       });
   }, []);
 
+  useEffect(() => {
+    axios
+      .get("https://iq-api.onrender.com/user/scoreboard", {
+        headers: { studentID },
+      })
+      .then((response) => {
+        localStorage.setItem(
+          `rankFor${studentID}`,
+          JSON.stringify(response.data.data)
+        );
+      });
+  }, []);
+
   return (
     <ResultSection>
       <LogoMobile src="/assets/logo2.svg" alt="" />
@@ -55,12 +68,19 @@ const Result = () => {
           </div>
           <div>
             <p>Số câu trả lời đúng</p>
-            <h3>{score}/15</h3>
+            <h3>
+              {score}
+              <strong style={{ color: "#979DA8", fontWeight: "500" }}>
+                /15
+              </strong>
+            </h3>
           </div>
           <div style={{ borderBottom: "1px solid #E0E0E0" }}>
             <p>Vị trí xếp hạng</p>
             <h3>
-              <RankButton>Xem BXH</RankButton>
+              <RankButton to={`/user/${name}/${studentID}/studentrank`}>
+                Xem BXH
+              </RankButton>
             </h3>
           </div>
         </UserStat>

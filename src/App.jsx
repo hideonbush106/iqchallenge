@@ -4,6 +4,7 @@ import Register from "./routes/user/register/Register";
 import Start from "./routes/user/start/Start";
 import Test from "./routes/user/test/Test";
 import Result from "./routes/user/result/Result";
+import Rank from "./routes/user/rank/Rank";
 import {
   Route,
   createBrowserRouter,
@@ -42,6 +43,13 @@ const router = createBrowserRouter(
         path={`/user/:name/:studentID/result`}
         element={
           <Result />
+        }
+        errorElement={<ErrorPage />}
+      />
+      <Route
+        path={`/user/:name/:studentID/studentrank`}
+        element={
+          <Rank />
         }
         errorElement={<ErrorPage />}
       />

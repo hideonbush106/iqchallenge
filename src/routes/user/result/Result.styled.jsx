@@ -9,7 +9,9 @@ export const ResultSection = styled.div`
   min-height: 100vh;
   ${down("md")} {
     flex-direction: column;
+    padding-bottom: 5rem;
   }
+  
 `;
 
 export const LogoMobile = styled.img`
@@ -24,9 +26,9 @@ export const LogoMobile = styled.img`
 
 export const ResultTheme = styled.img`
   max-width: 50%;
-  padding: 0 5rem;
+  padding-left: 10rem;
   ${down("md")} {
-    margin: 3rem 0 1.5rem 0;
+    margin: 1.5rem 0;
     padding: 0;
     max-width: 60%;
   }
@@ -45,6 +47,10 @@ export const ResultInfo = styled.div`
     > img {
         display: none;
     }
+    h1 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
   }
   h1 {
     color: #21222d;
@@ -56,12 +62,18 @@ export const ResultInfo = styled.div`
 export const UserStat = styled.div`
   width: 60%;
   margin-top: 1rem;
+  ${down("md")} {
+    width: 100%;
+    div {
+        padding:1rem 0.5rem !important;
+    }
+  }
   div {
     color: #000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1rem 1rem 1rem;
+    padding:  1rem;
     font-weight: 500;
     border-top: 1px solid #e0e0e0;
     h3 {
@@ -88,8 +100,14 @@ export const RankButton = styled(Link)`
 export const ClubFanpage = styled.div`
   margin: 1rem 0;
   width: fit-content;
-  p {
+  ${down("md")} {
+    > p{
+        margin: 0.5rem 0 !important;
+    }
+  }
+  > p {
     margin: 0.75rem 0;
+    font-weight: 600;
   }
   a {
     display: flex;
