@@ -56,7 +56,7 @@ export const Submit = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 1.5rem; 
+  margin-top: 1.5rem;
   p {
     color: #bdbdbd;
     margin: 1rem 0;

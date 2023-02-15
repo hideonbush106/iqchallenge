@@ -64,11 +64,11 @@ export default function Test() {
     const secs = (new Date() - responseData.timeStart) / 1000 + 15;
     const hr = Math.floor(secs / 60 / 60);
     const min = Math.floor((secs - hr * 3600) / 60);
-    const sec = secs - hr * 3600 - min * 60;
+    const sec = Math.floor(secs - hr * 3600 - min * 60);
 
-    const hrStr = parseInt(hr.toString().padStart(2, "0"));
-    const minStr = parseInt(min.toString().padStart(2, "0"));
-    const secStr = parseInt(sec.toString().padStart(2, "0"));
+    const hrStr = hr.toString().padStart(2, "0");
+    const minStr = min.toString().padStart(2, "0");
+    const secStr = sec.toString().padStart(2, "0");
     setTime(`${hrStr}:${minStr}:${secStr}`);
   };
 

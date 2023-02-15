@@ -1,25 +1,22 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { RankSection } from "./Rank.styled";
 
 const Rank = () => {
-  const { name, studentID } = useParams();
+  const { studentID } = useParams();
   const rank = JSON.parse(localStorage.getItem(`rankFor${studentID}`));
 
   const milisecToTime = (time) => {
     const secs = time / 1000;
     const hr = Math.floor(secs / 60 / 60);
     const min = Math.floor((secs - hr * 3600) / 60);
-    const sec = secs - hr * 3600 - min * 60;
+    const sec = Math.floor(secs - hr * 3600 - min * 60);
 
-    const hrStr = parseInt(hr.toString().padStart(2, "00"));
-    const minStr = parseInt(min.toString().padStart(2, "00"));
-    const secStr = parseInt(sec.toString().padStart(2, "00"));
+    const hrStr = hr.toString().padStart(2, "0");
+    const minStr = min.toString().padStart(2, "0");
+    const secStr = sec.toString().padStart(2, "0");
     return `${hrStr}:${minStr}:${secStr}`;
   };
 
-  console.log(rank);
   return (
     <RankSection>
       <img src="/assets/logo2.svg" alt="" />
