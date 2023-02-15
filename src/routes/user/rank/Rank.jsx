@@ -6,15 +6,18 @@ const Rank = () => {
   const rank = JSON.parse(localStorage.getItem(`rankFor${studentID}`));
 
   const milisecToTime = (time) => {
-    const secs = time / 1000;
-    const hr = Math.floor(secs / 60 / 60);
-    const min = Math.floor((secs - hr * 3600) / 60);
-    const sec = Math.floor(secs - hr * 3600 - min * 60);
+    if (time == undefined) return "Chưa nộp bài";
+    else {
+      const secs = time / 1000;
+      const hr = Math.floor(secs / 60 / 60);
+      const min = Math.floor((secs - hr * 3600) / 60);
+      const sec = Math.floor(secs - hr * 3600 - min * 60);
 
-    const hrStr = hr.toString().padStart(2, "0");
-    const minStr = min.toString().padStart(2, "0");
-    const secStr = sec.toString().padStart(2, "0");
-    return `${hrStr}:${minStr}:${secStr}`;
+      const hrStr = hr.toString().padStart(2, "0");
+      const minStr = min.toString().padStart(2, "0");
+      const secStr = sec.toString().padStart(2, "0");
+      return `${hrStr}:${minStr}:${secStr}`;
+    }
   };
 
   return (

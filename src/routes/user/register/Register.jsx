@@ -72,7 +72,7 @@ export default function Register() {
               placeholder="SE180000"
               type="text"
               required
-              // pattern="SE\d{6}"
+              pattern="SE\d{6}"
               name="studentID"
               onChange={formHandle}
               value={formData.studentID}

@@ -29,7 +29,6 @@ export default function ErrorPage() {
       <Error>
         <img src="/assets/logo.svg" alt="" />
         <h1>Oops! This page doesn't exist </h1>
-        <h1>{error.status || error.message}</h1>
       </Error>
     </>
   );
