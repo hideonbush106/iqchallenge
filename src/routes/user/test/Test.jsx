@@ -10,7 +10,6 @@ import TestStat from "../../../components/teststat/TestStat";
 import { useMediaQuery } from "react-responsive";
 
 export default function Test() {
-  
   const { name, studentID } = useParams();
 
   const isMobileOrTablet = useMediaQuery({
@@ -77,7 +76,7 @@ export default function Test() {
     return function cleanup() {
       clearInterval(timeID);
     };
-  },[]);
+  }, []);
 
   const handleSubmit = (event) => {
     const enteredAnswer = [];
@@ -127,6 +126,8 @@ export default function Test() {
                       requestBody
                     );
                     notifySuccess("Nộp bài thành công");
+                    localStorage.removeItem("responseData");
+                    localStorage.removeItem(`formDataFor${studentID}`);
                     onClose();
                     navigate(`/user/${name}/${studentID}/result`);
                   } catch (error) {
@@ -143,7 +144,7 @@ export default function Test() {
       },
     });
   };
-  console.log(formData)
+  console.log(formData);
   if (isMobileOrTablet) {
     return <div>Mobile not supported</div>;
   } else

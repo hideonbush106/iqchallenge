@@ -47,7 +47,7 @@ const router = createBrowserRouter(
         errorElement={<ErrorPage />}
       />
       <Route
-        path={`/user/:name/:studentID/studentrank`}
+        path={`/user/:name/:studentID/rank`}
         element={
           <Rank />
         }

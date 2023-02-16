@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const RankSection = styled.div`
@@ -20,7 +21,6 @@ export const RankSection = styled.div`
     text-align: center;
     font-weight: 500;
     border-collapse: collapse;
-    margin-bottom: 15rem;
     thead {
       background: #33bd64;
       color: #ecf0ff;
@@ -41,5 +41,24 @@ export const RankSection = styled.div`
         }
       }
     }
+  }
+`;
+
+export const Home = styled(Link)`
+  background: #33bd64;
+  border-radius: 12px;
+  padding: 0.75rem 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.25rem;
+  border: none;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.25s ease;
+  margin: 5rem 0;
+  :hover {
+    background-color: rgb(40, 149, 78);
   }
 `;

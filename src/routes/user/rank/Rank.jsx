@@ -1,12 +1,24 @@
-import { useParams } from "react-router-dom";
-import { RankSection } from "./Rank.styled";
-
+import { Link, useParams } from "react-router-dom";
+import { Home, RankSection } from "./Rank.styled";
+import { useState, useEffect } from "react";
+import axios from "axios";
 const Rank = () => {
   const { studentID } = useParams();
-  const rank = JSON.parse(localStorage.getItem(`rankFor${studentID}`));
+  const [rank, setRank] = useState({
+    studentRank: '',
+    users: [
+      {
+        rank: "",
+        name: "",
+        studentID: "",
+        score: "",
+        time: "",
+      },
+    ],
+  });
 
   const milisecToTime = (time) => {
-    if (time == undefined) return "Chưa nộp bài";
+    if (!time) return "";
     else {
       const secs = time / 1000;
       const hr = Math.floor(secs / 60 / 60);
@@ -19,6 +31,22 @@ const Rank = () => {
       return `${hrStr}:${minStr}:${secStr}`;
     }
   };
+
+  useEffect(() => {
+    axios
+      .get("https://iqapi.hdang09.site/user/scoreboard", {
+        headers: { studentID },
+      })
+      .then((response) => {
+        setRank((prevState) => ({
+          ...prevState,
+          studentRank: response.data.data.studentRank,
+          users: response.data.data.users,
+        }));
+      });
+  }, []);
+
+  console.log(rank);
 
   return (
     <RankSection>
@@ -75,6 +103,7 @@ const Rank = () => {
           })}
         </tbody>
       </table>
+      <Home to="/">Trang chủ</Home>
     </RankSection>
   );
 };

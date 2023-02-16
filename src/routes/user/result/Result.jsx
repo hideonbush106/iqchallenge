@@ -41,19 +41,6 @@ const Result = () => {
       });
   }, []);
 
-  useEffect(() => {
-    axios
-      .get("https://iqapi.hdang09.site/user/scoreboard", {
-        headers: { studentID },
-      })
-      .then((response) => {
-        localStorage.setItem(
-          `rankFor${studentID}`,
-          JSON.stringify(response.data.data)
-        );
-      });
-  }, []);
-
   return (
     <ResultSection>
       <LogoMobile src="/assets/logo2.svg" alt="" />
@@ -82,7 +69,7 @@ const Result = () => {
           <div style={{ borderBottom: "1px solid #E0E0E0" }}>
             <p>Vị trí xếp hạng</p>
             <h3>
-              <RankButton to={`/user/${name}/${studentID}/studentrank`}>
+              <RankButton to={`/user/${name}/${studentID}/rank`}>
                 Xem BXH
               </RankButton>
             </h3>
