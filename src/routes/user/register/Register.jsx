@@ -33,12 +33,13 @@ export default function Register() {
     e.preventDefault();
     try {
       await axios.post(
-        "https://iqapi.hdang09.site/register",
+        "https://iqapi.hdang09.site/user/register",
         formData
       );
       notifySuccess("Đăng kí thành công");
       navigate(`/user/start/${formData.name}/${formData.studentID}`);
     } catch (error) {
+      console.log(error);
       notifyError("MSSV đã được đăng kí");
     }
   };

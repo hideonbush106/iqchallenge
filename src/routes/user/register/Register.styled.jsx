@@ -66,7 +66,7 @@ const RegisterTheme = styled.img`
   }
 `;
 
-const InputArea = styled.div.attrs()`
+const InputArea = styled.div`
   &:focus-within {
     outline: 1px solid #33bd64;
   }
