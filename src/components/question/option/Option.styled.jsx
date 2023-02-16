@@ -1,3 +1,4 @@
+import { down } from "styled-breakpoints";
 import styled from "styled-components";
 
 export const OptionSection = styled.div`
@@ -8,6 +9,13 @@ export const OptionSection = styled.div`
   align-self: ;
   height: 100%;
   justify-content: space-between;
+  ${down("md")} {
+    width: 100%;
+    padding: 0;
+    justify-content: start;
+    padding: 0 2rem;
+    margin: 1rem 0 2rem 0;
+  }
 `;
 
 export const Choices = styled.div`

@@ -1,9 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Question from "../../../components/question/Question";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { notifyError, notifySuccess } from "../../../components/Toastify";
-import { TestSection, TestForm, FormArea } from "./Test.styled";
+import {
+  TestSection,
+  TestForm,
+  FormArea,
+  TestSectionMobile,
+  TestStatMobile,
+} from "./Test.styled";
 import { confirmAlert } from "react-confirm-alert";
 import "../../../confirm.css"; // Import css
 import TestStat from "../../../components/teststat/TestStat";
@@ -144,9 +150,35 @@ export default function Test() {
       },
     });
   };
-  console.log(formData);
   if (isMobileOrTablet) {
-    return <div>Mobile not supported</div>;
+    return (
+      <TestSectionMobile>
+        <TestStatMobile>
+          <img src="/assets/logo2.svg" alt="" />
+          <div>
+            {responseData.questions.map((questions, index) => (
+              <a key={index} href={`#question-${index + 1}`}>{`Câu ${
+                index + 1
+              }`}</a>
+            ))}
+          </div>
+          <p>{time}</p>
+        </TestStatMobile>
+        <TestForm onSubmit={handleSubmit}>
+          <FormArea>
+            {responseData.questions.map((questions, index) => (
+              <Question
+                question={questions}
+                questionIndex={index}
+                key={index}
+                handleChange={handleChange}
+                formData={formData}
+              />
+            ))}
+          </FormArea>
+        </TestForm>
+      </TestSectionMobile>
+    );
   } else
     return (
       <TestSection>

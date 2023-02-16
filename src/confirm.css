@@ -2,6 +2,14 @@ body.react-confirm-alert-body-element {
   overflow: hidden;
 }
 
+@media (max-width: 767.98px) {
+  .react-confirm-alert-body {
+    width: fit-content !important;
+    margin: 0 1rem;
+    padding: 2rem 1rem !important;
+  }
+}
+
 .react-confirm-alert-overlay {
   position: fixed;
   top: 0;
@@ -43,8 +51,8 @@ body.react-confirm-alert-body-element {
 }
 
 .react-confirm-alert-body > p {
-    padding: 1rem;
-  }
+  padding: 1rem;
+}
 
 .react-confirm-alert-body > h2 {
   margin: 0.5rem 0 1rem 0;
@@ -52,7 +60,7 @@ body.react-confirm-alert-body-element {
 }
 
 .react-confirm-alert-body > h3 {
-    margin: 1rem 0 2rem 0;
+  margin: 1rem 0 2rem 0;
 }
 
 .react-confirm-alert-button-group {
@@ -71,7 +79,7 @@ body.react-confirm-alert-body-element {
   border: none;
   display: inline-block;
   padding: 0.8rem 1.6rem;
-  color: #FFF;
+  color: #fff;
   margin-right: 10px;
   border-radius: 12px;
   cursor: pointer;
@@ -79,18 +87,18 @@ body.react-confirm-alert-body-element {
   transition: all 0.25s ease;
 }
 
-.react-confirm-alert-button-group > button:hover{
-    background-color: rgb(40, 149, 78);
+.react-confirm-alert-button-group > button:hover {
+  background-color: rgb(40, 149, 78);
 }
 
 .button-reverse {
-    background-color: #FFF !important;
-    color: #33bd64 !important;
+  background-color: #fff !important;
+  color: #33bd64 !important;
 }
 
-.react-confirm-alert-button-group > .button-reverse:hover{
-    background-color: #bdbdbd !important;
-    color: #000000 !important;
+.react-confirm-alert-button-group > .button-reverse:hover {
+  background-color: #bdbdbd !important;
+  color: #000000 !important;
 }
 
 @-webkit-keyframes react-confirm-alert-fadeIn {

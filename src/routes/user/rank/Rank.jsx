@@ -45,9 +45,6 @@ const Rank = () => {
         }));
       });
   }, []);
-
-  console.log(rank);
-
   return (
     <RankSection>
       <img src="/assets/logo2.svg" alt="" />
@@ -58,6 +55,7 @@ const Rank = () => {
         Bạn đang ở{" "}
         <strong style={{ color: "#F9AF0B" }}>hạng {rank.studentRank}</strong>
       </h3>
+      <Home to="/">Trang chủ</Home>
       <table>
         <thead>
           <tr>
@@ -103,7 +101,6 @@ const Rank = () => {
           })}
         </tbody>
       </table>
-      <Home to="/">Trang chủ</Home>
     </RankSection>
   );
 };
