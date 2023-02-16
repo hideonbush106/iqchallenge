@@ -30,24 +30,27 @@ export const QuestionSection = styled.div`
 `;
 
 export const Button = styled.div`
-  width: 100%;
-  display: flex;
-  margin-bottom: 2.5rem;
-  justify-content: center;
-  height: 5rem;
-  button {
+  display: none;
+  ${down("md")} {
+    width: 100%;
     display: flex;
-    ${down("md")} {
-      width: fit-content;
-      font-size: 1.5rem;
-      background: none;
-      color: #33bd64;
-      font-weight: 500;
-      border: none;
-      padding: 0;
-      font: inherit;
-      cursor: pointer;
-      outline: inherit;
+    margin-bottom: 2.5rem;
+    justify-content: center;
+    height: 5rem;
+    button {
+      display: flex;
+      ${down("md")} {
+        width: fit-content;
+        font-size: 1.5rem;
+        background: none;
+        color: #33bd64;
+        font-weight: 500;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+      }
     }
   }
 `;
