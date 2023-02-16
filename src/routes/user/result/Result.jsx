@@ -20,7 +20,7 @@ const Result = () => {
 
   useEffect(() => {
     axios
-      .get(`https://iq-api.onrender.com/user/${studentID}`)
+      .get(`https://iqapi.hdang09.site/user/${studentID}`)
       .then((response) => {
         setScore(response.data.data.score);
         setTime(() => {
@@ -43,7 +43,7 @@ const Result = () => {
 
   useEffect(() => {
     axios
-      .get("https://iq-api.onrender.com/user/scoreboard", {
+      .get("https://iqapi.hdang09.site/user/scoreboard", {
         headers: { studentID },
       })
       .then((response) => {

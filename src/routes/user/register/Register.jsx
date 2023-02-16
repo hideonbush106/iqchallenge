@@ -33,7 +33,7 @@ export default function Register() {
     e.preventDefault();
     try {
       await axios.post(
-        "https://iq-api.onrender.com/user/register",
+        "https://iqapi.hdang09.site/register",
         formData
       );
       notifySuccess("Đăng kí thành công");

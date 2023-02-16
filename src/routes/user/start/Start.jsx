@@ -18,7 +18,7 @@ const Start = () => {
     e.preventDefault();
     try {
       const response = await axios.get(
-        `https://iq-api.onrender.com/user/start/${name}/${studentID}`
+        `https://iqapi.hdang09.site/start/${name}/${studentID}`
       );
       localStorage.setItem("responseData", JSON.stringify(response.data.data));
       navigate(`/user/start/${name}/${studentID}/test`);

@@ -123,7 +123,7 @@ export default function Test() {
                     };
                     console.log(requestBody);
                     const response = await axios.put(
-                      "https://iq-api.onrender.com/user/end",
+                      "https://iqapi.hdang09.site/user/end",
                       requestBody
                     );
                     notifySuccess("Nộp bài thành công");
