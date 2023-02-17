@@ -126,7 +126,6 @@ export default function Test() {
                       studentID: studentID,
                       answer: enteredAnswer,
                     };
-                    console.log(requestBody);
                     const response = await axios.put(
                       "https://iqapi.hdang09.site/user/end",
                       requestBody
@@ -156,11 +155,22 @@ export default function Test() {
         <TestStatMobile>
           <img src="/assets/logo2.svg" alt="" />
           <div>
-            {responseData.questions.map((questions, index) => (
-              <a key={index} href={`#question-${index + 1}`}>{`Câu ${
-                index + 1
-              }`}</a>
-            ))}
+            {responseData.questions.map((questions, index) => {
+              if (!formData[index].answer)
+                return (
+                  <a key={index} href={`#question-${index + 1}`}>{`Câu ${
+                    index + 1
+                  }`}</a>
+                );
+              else
+                return (
+                  <a
+                    key={index}
+                    style={{ color: "#FFF", background: "#33bd64" }}
+                    href={`#question-${index + 1}`}
+                  >{`Câu ${index + 1}`}</a>
+                );
+            })}
           </div>
           <p>{time}</p>
         </TestStatMobile>

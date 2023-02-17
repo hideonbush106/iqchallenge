@@ -17,12 +17,16 @@ const Question = (props) => {
         handleChange={props.handleChange}
         formData={props.formData}
       />
-      <Button>
-        <button type="submit">Nộp bài</button>
-      </Button>
+      {props.questionIndex + 1 == 15 ? (
+        <Button>
+          <button type="submit">Nộp bài</button>
+        </Button>
+      ) : (
+        <Button>
+          <a href={`#question-${props.questionIndex + 2}`}>Tiếp tục</a>
+        </Button>
+      )}
     </QuestionSection>
   );
 };
-// TODO: css lại câu hỏi
-// TODO: làm mobile
 export default Question;

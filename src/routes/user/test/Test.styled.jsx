@@ -29,6 +29,7 @@ export const TestSectionMobile = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
+  overflow: hidden;
 `;
 
 export const TestStatMobile = styled.div`
@@ -36,6 +37,7 @@ export const TestStatMobile = styled.div`
   position: fixed;
   z-index: 99;
   width: 100%;
+  color: #919196;
   img {
     margin: 1rem auto;
   }
@@ -58,7 +60,6 @@ export const TestStatMobile = styled.div`
       /* background: #33bd64; */
       /* color: #fff; */
       border-radius: 99px;
-      color: #919196 !important;
       :visited {
         color: inherit;
         text-decoration: none;

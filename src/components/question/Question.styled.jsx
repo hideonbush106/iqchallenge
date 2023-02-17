@@ -52,5 +52,25 @@ export const Button = styled.div`
         outline: inherit;
       }
     }
+    a{
+      display: flex;
+      :link{
+        text-decoration: none;
+      }
+      :visited{
+        text-decoration: none;
+      }
+      ${down("md")} {
+        width: fit-content;
+        font-size: 1.5rem;
+        background: none;
+        color: #33bd64;
+        font-weight: 500;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+    }
   }
 `;
