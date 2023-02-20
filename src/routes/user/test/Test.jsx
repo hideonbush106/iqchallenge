@@ -66,7 +66,7 @@ export default function Test() {
   }, [formData]);
 
   const milisecToTime = () => {
-    const secs = (new Date() - responseData.timeStart) / 1000 + 15;
+    const secs = (new Date() - responseData.timeStart) / 1000;
     const hr = Math.floor(secs / 60 / 60);
     const min = Math.floor((secs - hr * 3600) / 60);
     const sec = Math.floor(secs - hr * 3600 - min * 60);
