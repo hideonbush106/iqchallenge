@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { Home, RankSection } from "./Rank.styled";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { getRank } from "../../../utils/IQAPI";
 const Rank = () => {
   const { studentID } = useParams();
   const [rank, setRank] = useState({
@@ -33,10 +34,11 @@ const Rank = () => {
   };
 
   useEffect(() => {
-    axios
-      .get("https://iqapi.hdang09.site/user/scoreboard", {
-        headers: { studentID },
-      })
+    // axios
+    //   .get("https://iqapi.hdang09.site/user/scoreboard", {
+    //     headers: { studentID },
+    //   })
+      getRank(studentID)
       .then((response) => {
         setRank((prevState) => ({
           ...prevState,

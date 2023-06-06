@@ -11,6 +11,7 @@ import {
   ClubFanpage,
   LogoMobile,
 } from "./Result.styled";
+import { getResult } from "../../../utils/IQAPI";
 
 const Result = () => {
   const { name, studentID } = useParams();
@@ -19,26 +20,24 @@ const Result = () => {
   const [time, setTime] = useState("");
 
   useEffect(() => {
-    axios
-      .get(`https://iqapi.hdang09.site/user/${studentID}`)
-      .then((response) => {
-        setScore(response.data.data.score);
-        setTime(() => {
-          const secs = response.data.data.time / 1000;
-          const hr = Math.floor(secs / 60 / 60);
-          const min = Math.floor((secs - hr * 3600) / 60);
-          const sec = Math.floor(secs - hr * 3600 - min * 60);
+    getResult(studentID).then((response) => {
+      setScore(response.data.data.score);
+      setTime(() => {
+        const secs = response.data.data.time / 1000;
+        const hr = Math.floor(secs / 60 / 60);
+        const min = Math.floor((secs - hr * 3600) / 60);
+        const sec = Math.floor(secs - hr * 3600 - min * 60);
 
-          const hrStr = hr.toString().padStart(2, "0");
-          const minStr = min.toString().padStart(2, "0");
-          const secStr = sec.toString().padStart(2, "0");
-          if (hrStr == "00") {
-            if (minStr == "00") {
-              return `${secStr}s`;
-            } else return `${minStr}m${secStr}s`;
-          } else return `${hrStr}h${minStr}m${secStr}s`;
-        });
+        const hrStr = hr.toString().padStart(2, "0");
+        const minStr = min.toString().padStart(2, "0");
+        const secStr = sec.toString().padStart(2, "0");
+        if (hrStr == "00") {
+          if (minStr == "00") {
+            return `${secStr}s`;
+          } else return `${minStr}m${secStr}s`;
+        } else return `${hrStr}h${minStr}m${secStr}s`;
       });
+    });
   }, []);
 
   return (

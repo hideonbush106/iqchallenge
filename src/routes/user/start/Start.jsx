@@ -9,7 +9,8 @@ import {
 import { Form, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { notifyError } from "../../../components/Toastify";
-
+import { API_URL } from "../../../config";
+import { getTest } from "../../../utils/IQAPI";
 const Start = () => {
   let { name, studentID } = useParams();
   const navigate = useNavigate();
@@ -17,9 +18,7 @@ const Start = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response = await axios.get(
-        `https://iqapi.hdang09.site/user/start/${name}/${studentID}`
-      );
+      const response = await getTest(name, studentID);
       localStorage.setItem("responseData", JSON.stringify(response.data.data));
       navigate(`/user/start/${name}/${studentID}/test`);
     } catch (error) {

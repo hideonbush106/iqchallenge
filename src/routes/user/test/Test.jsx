@@ -14,6 +14,7 @@ import { confirmAlert } from "react-confirm-alert";
 import "../../../confirm.css"; // Import css
 import TestStat from "../../../components/teststat/TestStat";
 import { useMediaQuery } from "react-responsive";
+import { submitTest } from "../../../utils/IQAPI";
 
 export default function Test() {
   const { name, studentID } = useParams();
@@ -126,10 +127,11 @@ export default function Test() {
                       studentID: studentID,
                       answer: enteredAnswer,
                     };
-                    const response = await axios.put(
-                      "https://iqapi.hdang09.site/user/end",
-                      requestBody
-                    );
+                    // const response = await axios.put(
+                    //   "https://iqapi.hdang09.site/user/end",
+                    //   requestBody
+                    // );
+                    submitTest(requestBody);
                     notifySuccess("Nộp bài thành công");
                     localStorage.removeItem("responseData");
                     localStorage.removeItem(`formDataFor${studentID}`);

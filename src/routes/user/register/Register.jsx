@@ -7,12 +7,13 @@ import {
   InputArea,
   FormArea,
   Input,
-  LogoMobile
+  LogoMobile,
 } from "./Register.styled";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { notifyError, notifySuccess } from "../../../components/Toastify";
+import { getRegister } from "../../../utils/IQAPI";
 
 export default function Register() {
   const [formData, setFormData] = React.useState({
@@ -32,10 +33,7 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(
-        "https://iqapi.hdang09.site/user/register",
-        formData
-      );
+      await getRegister(formData);
       notifySuccess("Đăng kí thành công");
       navigate(`/user/start/${formData.name}/${formData.studentID}`);
     } catch (error) {
